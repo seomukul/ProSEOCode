@@ -1,0 +1,93 @@
+{% extends 'base.html'%}
+
+{% block head %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BootstrapDash Comingsoon Template</title>
+    <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bd-coming-soon.css">
+</head>
+
+{% endblock head %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Homepage</title>
+  <style>
+    /* CSS styles for the banner */
+    .banner {
+      background-color: #f2f2f2;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .banner h1 {
+      color: #333;
+      font-size: 24px;
+      margin: 0;
+    }
+    
+    .banner p {
+      color: #666;
+      font-size: 16px;
+      margin: 10px 0 0 0;
+    }
+    
+    /* CSS styles for the email signup form */
+    .signup-form {
+      margin-top: 20px;
+      text-align: center;
+    }
+    
+    .signup-form input[type="email"] {
+      padding: 10px;
+      width: 250px;
+    }
+    
+    .signup-form input[type="submit"] {
+      background-color: #333;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="banner">
+    <h1>Welcome to Our Homepage</h1>
+    <p>Discover amazing products and services!</p>
+    <form class="signup-form" action="#" method="post">
+      <input type="email" name="email" placeholder="Enter your email" required>
+      <input type="submit" value="Sign Up">
+    </form>
+  </div>
+</body>
+</html>
+
+
+    <footer class="text-center">
+        <nav class="footer-social-links">
+            <a href="#!" class="social-link"><i class="mdi mdi-facebook-box"></i></a>
+            <a href="#!" class="social-link"><i class="mdi mdi-twitter"></i></a>
+            <a href="#!" class="social-link"><i class="mdi mdi-google"></i></a>
+        </nav>
+    </footer>
+
+    <script src="assets/js/bd-timer.js"></script>
+</body>
+
+</html>
+
+{% endblock content %}

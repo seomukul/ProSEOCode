@@ -1,0 +1,64 @@
+{% extends 'base.html'%}
+{% load social_share %}
+{% block head %}
+<title>
+    {% if post.meta_title %} {{post.meta_title}}
+    {%else%} {{post.title}}
+    {%endif%}
+</title>
+<meta name="description" content="{% if post.meta_description %} {{post.meta_description}} {%else%}
+    {{post.content|truncatechars:200}}{%endif%}" /> {% endblock head %}
+
+{% block content %}
+
+<div class="container my-3">
+    <div class="row py-3">
+        <div class="col-md-9">
+            <h1 class="h3">{{post.title}}</h1>
+            <!-- BreadCumbs -->
+
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a class="text-decoration-none text-danger" href="{% url 'home' %}">Home</a></li>
+                    {% if post.category %}
+                        <li class="breadcrumb-item"><a href="{% url 'category_page' post.category.slug %}" class="text-decoration-none text-danger">{{ post.category.title }}</a></li>
+                    {% endif %}
+                    <li class="breadcrumb-item active" aria-current="page">{{ post.title }}</li>
+                </ol>
+            </nav>
+            
+            <hr>
+           <div class="my-3">
+                <img src="{{post.featured.url}}" alt="{{post.title}}" width="500" height="300" style="margin-bottom: 20px;">
+                {{post.content|safe}}
+              </div>
+              <br>
+         <!-- share button -->
+   <!-- Facebook share button -->
+<a class="btn btn-outline-primary btn-lg btn-social-share facebook-share-button" href="https://www.facebook.com/sharer/sharer.php?u={% url 'single_post' post.slug %}" target="_blank" rel="noopener" aria-label="Share on Facebook">
+  <i class="fab fa-facebook fa-lg"></i> Facebook
+</a>
+
+<!-- Twitter share button -->
+<a class="btn btn-outline-info btn-lg btn-social-share twitter-share-button" href="https://twitter.com/intent/tweet?url={% url 'single_post' post.slug %}&amp;text={{ post.title }}" target="_blank" rel="noopener" aria-label="Share on Twitter">
+  <i class="fab fa-twitter fa-lg"></i> Twitter
+</a>
+
+<!-- LinkedIn share button -->
+<a class="btn btn-outline-warning btn-lg btn-social-share linkedin-share-button" href="https://www.linkedin.com/sharing/share-offsite/?url={% url 'single_post' post.slug %}" target="_blank" rel="noopener" aria-label="Share on LinkedIn">
+  <i class="fab fa-linkedin fa-lg"></i> LinkedIn
+</a>
+
+<!-- Email share button -->
+<a class="btn btn-outline-danger btn-lg btn-social-share email-share-button" href="mailto:?subject={{ post.title }}&amp;body={% url 'single_post' post.slug %}" target="_blank" rel="noopener" aria-label="Share via Email">
+  <i class="far fa-envelope fa-lg"></i> Email
+</a>
+      </div>
+    </div>
+            Last Updated: {{post.updated}}
+        </div>
+        <div class="col-md-3">Sidebar</div>
+    </div>
+</div>
+{% endblock content %}
